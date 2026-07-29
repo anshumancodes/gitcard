@@ -3,7 +3,7 @@
 Embed beautiful GitHub language stats in your README with a single image tag. Fetches live data from the GitHub API and returns an SVG card.
 
 ```md
-![Languages](https://your-domain.com/username)
+![Languages](https://gitcard.anshumancdx.xyz/username)
 ```
 
 ## How to use
@@ -11,7 +11,7 @@ Embed beautiful GitHub language stats in your README with a single image tag. Fe
 Hit `/{username}` to get a card for any GitHub user.
 
 ```
-https://your-domain.com/torvalds
+https://gitcard.anshumancdx.xyz//torvalds
 ```
 
 Customize it with query params:
