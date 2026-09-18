@@ -10,14 +10,13 @@ export const metadata: Metadata = {
 const EXAMPLE_USERS = ["torvalds", "gaearon", "sindresorhus", "yyx990803"];
 
 const PARAMS = [
-  { param: "?theme=light", desc: "Light mode", example: "/torvalds?theme=light" },
-  { param: "?top=5",       desc: "Show top N languages", example: "/torvalds?top=5" },
+  { param: "?theme=light", desc: "Light theme (dark by default)", example: "/torvalds?theme=light" },
+  { param: "?top=5",       desc: "Show top N languages (default 5)", example: "/torvalds?top=3" },
   { param: "?hide=c,make", desc: "Exclude languages", example: "/torvalds?hide=c,makefile" },
-  { param: "?title=Stack", desc: "Override card title", example: "/torvalds?title=My+Stack" },
-  { param: "?compact=true",desc: "Compact layout", example: "/torvalds?compact=true" },
-  { param: "?width=600",   desc: "Custom width (320–800)", example: "/torvalds?width=600" },
-  { param: "?bg=transparent", desc: "Transparent background", example: "/torvalds?bg=transparent" },
-  { param: "?avatar=false",desc: "Hide avatar", example: "/torvalds?avatar=false" },
+  { param: "?compact=true",desc: "Ultra-compact height (78px)", example: "/torvalds?compact=true" },
+  { param: "?width=600",   desc: "Custom width (320–1000px)", example: "/torvalds?width=600" },
+  { param: "?bg=transparent", desc: "Transparent card background", example: "/torvalds?bg=transparent" },
+  { param: "?radius=16",   desc: "Custom corner radius (0–30px)", example: "/torvalds?radius=16" },
 ];
 
 export default function HomePage() {
@@ -53,7 +52,7 @@ export default function HomePage() {
             <span className="ml-2 text-[11px] text-[#404040] font-mono">README.md</span>
           </div>
           <pre className="text-sm text-[#c0c0c0] overflow-x-auto font-mono leading-relaxed">
-            <code>{`![Languages](https://gitcard.yourdomain.com/anshumancdx)`}</code>
+            <code>{`![Languages](https://gitcard.anshumancdx.xyz/anshumancdx)`}</code>
           </pre>
         </div>
 
