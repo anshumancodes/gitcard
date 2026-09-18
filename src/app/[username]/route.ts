@@ -31,8 +31,8 @@ function parseOptions(searchParams: URLSearchParams): GitCardOptions {
   const theme =
     searchParams.get("theme") === "light" ? "light" : "dark";
 
-  const topRaw = parseInt(searchParams.get("top") ?? "8", 10);
-  const top = isNaN(topRaw) || topRaw < 1 ? 8 : Math.min(topRaw, 20);
+  const topRaw = parseInt(searchParams.get("top") ?? "5", 10);
+  const top = isNaN(topRaw) || topRaw < 1 ? 5 : Math.min(topRaw, 10);
 
   const hideRaw = searchParams.get("hide") ?? "";
   const hide = hideRaw
@@ -51,8 +51,8 @@ function parseOptions(searchParams: URLSearchParams): GitCardOptions {
   const brRaw = parseInt(searchParams.get("radius") ?? "12", 10);
   const borderRadius = isNaN(brRaw) ? 12 : Math.min(Math.max(brRaw, 0), 30);
 
-  const widthRaw = parseInt(searchParams.get("width") ?? "450", 10);
-  const width = isNaN(widthRaw) ? 450 : Math.min(Math.max(widthRaw, 320), 800);
+  const widthRaw = parseInt(searchParams.get("width") ?? "640", 10);
+  const width = isNaN(widthRaw) ? 640 : Math.min(Math.max(widthRaw, 320), 1000);
 
   const compact = searchParams.get("compact") === "true";
 
