@@ -2,54 +2,17 @@ import type { AggregatedLanguage, LanguageMap } from "@/types";
 import { getLanguageColor } from "./colors";
 
 // ---------------------------------------------------------------------------
-// Languages reported by GitHub Linguist that are NOT source/programming code.
-// These are excluded *before* byte counting so percentages reflect only
-// actual code languages.
+// Keep the card focused on widely used programming languages. GitHub's
+// language endpoint also reports shell, markup, stylesheets, and data formats,
+// so an allowlist is more reliable than trying to enumerate every exclusion.
 // ---------------------------------------------------------------------------
-const EXCLUDED_LANGUAGES = new Set([
-  // Stylesheets
-  "css",
-  "scss",
-  "sass",
-  "less",
-
-  // Markup / template languages
-  "html",
-  "ejs",
-  "handlebars",
-  "mustache",
-
-  // Documentation
-  "markdown",
-  "mdx",
-  "rdoc",
-  "pod",
-  "restructuredtext",
-  "asciidoc",
-  "tex",
-
-  // Data / config formats
-  "json",
-  "yaml",
-  "xml",
-  "toml",
-  "ini",
-  "properties",
-  "dotenv",
-
-  // Containerisation / build tooling
-  "dockerfile",
-  "docker-compose",
-
-  // Lock files / generated artifacts
-  "package-lock.json",
-  "pnpm-lock.yaml",
-  "yarn.lock",
-
-  // Editor / tooling config
-  "gitignore template",
-  "git config",
-  "editorconfig",
+const PROGRAMMING_LANGUAGES = new Set([
+  "assembly", "c", "c#", "c++", "clojure", "coffeescript", "common lisp",
+  "crystal", "dart", "elixir", "elm", "erlang", "f#", "fortran", "go",
+  "groovy", "haskell", "java", "javascript", "julia", "kotlin", "lua",
+  "matlab", "ocaml", "objective-c", "perl", "php", "python", "r",
+  "ruby", "rust", "scala", "scheme", "sql", "swift", "typescript",
+  "visual basic .net", "wasm", "zig",
 ]);
 
 /** Maximum number of languages shown individually in the card. */
@@ -71,7 +34,7 @@ export function aggregateLanguages(
   const filtered: LanguageMap = {};
   for (const [lang, bytes] of Object.entries(rawMap)) {
     const lower = lang.toLowerCase();
-    if (EXCLUDED_LANGUAGES.has(lower)) continue;
+    if (!PROGRAMMING_LANGUAGES.has(lower)) continue;
     if (hideLower.has(lower)) continue;
     filtered[lang] = bytes;
   }
